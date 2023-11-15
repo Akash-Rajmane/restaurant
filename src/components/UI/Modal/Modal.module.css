@@ -36,6 +36,11 @@
     font-weight: bold;
 }
 
+.closeBtn:hover{
+    color: #fff;
+    background-color: #8a2b06;
+}
+
 .orderBtn{
     font: inherit;
     cursor: pointer;
@@ -45,4 +50,8 @@
     padding: 0.3rem 2rem;
     border-radius: 20px;
     font-weight: bold;
+}
+
+.orderBtn:hover{
+    background-color: #641e03;
 }
