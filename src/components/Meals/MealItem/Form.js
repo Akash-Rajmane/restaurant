@@ -9,6 +9,7 @@ const Form = (props) => {
         type="number"
         label="Amount"
         id="amount"
+        defaultValue={1}
         />
         <button>+ Add</button>
     </form>
