@@ -6,8 +6,7 @@ import CartContext from '../../../context/cart-context';
 const Form = (props) => {
   const quantityRef = useRef();
  
-  const {addItem, items} = useContext(CartContext); 
-  console.log(items);
+  const {addItem} = useContext(CartContext); 
   
   const submitHandler = (e) => {
     e.preventDefault();

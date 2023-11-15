@@ -16,18 +16,58 @@ const defaultState = {
 
 const cartReducer = (state, action) => {
     switch(action.type){
-        case "ADD":
-            const updatedItems = state.items.concat(action.item)
+        case "ADD": {
+            const existingCartItemIndex = state.items.findIndex(
+                (item) => item.id === action.item.id
+            );
+
+            const existingCartItem = state.items[existingCartItemIndex];
+            
+            let updatedItems;
+        
+            if (existingCartItem) {
+                const updatedItem = {
+                ...existingCartItem,
+                quantity: existingCartItem.quantity + action.item.quantity,
+                };
+                updatedItems = [...state.items];
+                updatedItems[existingCartItemIndex] = updatedItem;
+            } else {
+                updatedItems = state.items.concat(action.item);
+            }
+            
             const updatedTotalAmount = state.totalAmount + action.item.price*action.item.quantity
             return {
                 items: updatedItems,
                 totalAmount: updatedTotalAmount
             }
-        case "REMOVE":
-            
-            return {
+        }
+        
 
+        case "REMOVE": {
+            const existingCartItemIndex = state.items.findIndex(
+                (item) => item.id === action.id
+            );
+
+            const existingCartItem = state.items[existingCartItemIndex];
+            
+            const updatedTotalAmount = state.totalAmount - existingCartItem.price;
+            
+            let updatedItems;
+            
+            if(existingCartItem.quantity===1){
+                updatedItems = state.items.filter(item => item.id !== action.id);
+            }else{
+                const updatedItem = { ...existingCartItem, quantity: existingCartItem.quantity - 1 };
+                updatedItems = [...state.items];
+                updatedItems[existingCartItemIndex] = updatedItem;
             }
+
+            return {
+                items: updatedItems,
+                totalAmount: updatedTotalAmount
+            }
+        }
         default: 
             return defaultState;
     }

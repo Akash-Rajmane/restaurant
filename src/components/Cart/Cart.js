@@ -1,13 +1,13 @@
 import React from 'react';
 import Modal from "../UI/Modal/Modal";
 import Backdrop from "../UI/Backdrop/Backdrop";
+import CartItems from './CartItems';
 
 const Cart = (props) => {
-    const cartItems = "sushi";
   return (
     <>
     <Modal 
-        cartItems={cartItems}
+        cartItems={<CartItems/>}
         hideCartHandler={props.hideCartHandler}
     />
     <Backdrop hideCartHandler={props.hideCartHandler}/>

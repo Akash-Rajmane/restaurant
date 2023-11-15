@@ -4,13 +4,22 @@
     left: 50%;
     transform: translate(-50%,-50%);
     z-index: 100;
-    width: 65%;
+    width: 60%;
     padding: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     border-radius: 14px;
     background-color: white;
   }
 
+  .modal ul{
+    display: block;
+    list-style: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 5px;
+    margin-inline-end: 5px;
+    padding-inline-start: 0px;
+  }
 
 .cost{
     display: flex;
