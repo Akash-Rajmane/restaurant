@@ -1,16 +1,26 @@
+import React, {useState} from "react"
 import Header from "./components/Layout/Header/Header";
 import Meals from "./components/Meals/Meals";
-// import Modal from "./components/UI/Modal/Modal";
-// import Backdrop from "./components/UI/Backdrop/Backdrop";
+import Cart from "./components/Cart/Cart";
+
 
 function App() {
+  const [cartIsShown, setCartIsShown] = useState(false);
+
+  const showCartHandler = () => {
+    setCartIsShown(true);
+  }
+
+  const hideCartHandler = () => {
+    setCartIsShown(false);
+  }
+
   return (
     <>
-      <Header/>
+      <Header showCartHandler={showCartHandler}/>
       <main>
         <Meals />
-        {/* <Modal/>
-        <Backdrop/> */}
+        {cartIsShown && <Cart hideCartHandler={hideCartHandler}/>}
       </main>
     </>
   );
