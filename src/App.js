@@ -4,7 +4,7 @@ import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
 import { CartContextProvider } from "./context/cart-context";
 import Order from "./components/Order/Order";
-import OrderContext, { OrderContextProvider } from "./context/order-context";
+import { OrderContextProvider } from "./context/order-context";
 
 
 function App() {
