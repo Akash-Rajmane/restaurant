@@ -4,9 +4,13 @@ import ReactDOM  from 'react-dom';
 import CartContext from '../../../context/cart-context';
 
 const Modal = (props) => {
-    const {totalAmount,removeAllItems} = useContext(CartContext);
+    const {totalAmount,removeAllItems,items} = useContext(CartContext);
 
     const orderConfirmationHandler = () => {
+        if(items.length===0){
+            alert("Cart is Empty, Please add items first");
+            return;
+        }
         alert("Your order is successful.");
         props.hideCartHandler();
         removeAllItems();
