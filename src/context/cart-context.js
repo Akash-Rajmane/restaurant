@@ -4,7 +4,8 @@ const CartContext = React.createContext({
     items: [],
     totalAmount: 0,
     addItem: (item) => {},
-    removeItem: (id) => {}
+    removeItem: (id) => {},
+    removeAllItems: () => {}
 });
 
 export default CartContext;
@@ -68,6 +69,11 @@ const cartReducer = (state, action) => {
                 totalAmount: updatedTotalAmount
             }
         }
+
+        case "REMOVE_ALL": {
+            return defaultState;
+        }
+
         default: 
             return defaultState;
     }
@@ -83,11 +89,16 @@ export const CartContextProvider = (props) => {
         dispatch({type:"REMOVE",id:id})
     }
 
+    const removeAllItemsFromCart = () => {
+        dispatch({type:"REMOVE_ALL"})
+    }
+
     let cartContext = {
         items: cartState.items,
         totalAmount: cartState.totalAmount,
         addItem: addItemToCartHandler,
-        removeItem: removeItemFromCartHandler
+        removeItem: removeItemFromCartHandler,
+        removeAllItems : removeAllItemsFromCart 
     }
 
 return(

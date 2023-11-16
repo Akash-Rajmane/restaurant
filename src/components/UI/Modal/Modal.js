@@ -4,7 +4,13 @@ import ReactDOM  from 'react-dom';
 import CartContext from '../../../context/cart-context';
 
 const Modal = (props) => {
-    const {totalAmount} = useContext(CartContext);
+    const {totalAmount,removeAllItems} = useContext(CartContext);
+
+    const orderConfirmationHandler = () => {
+        alert("Your order is successful.");
+        props.hideCartHandler();
+        removeAllItems();
+    }
 
     const child = <div className={classes.modal}>
                     <ul>{props.cartItems}</ul>
@@ -14,7 +20,7 @@ const Modal = (props) => {
                     </h2>
                     <div className={classes.btnBox}>
                         <button className={classes.closeBtn} onClick={props.hideCartHandler}>Close</button>
-                        <button className={classes.orderBtn}>Order</button>
+                        <button className={classes.orderBtn} onClick={orderConfirmationHandler}>Order</button>
                     </div>
                 </div>
     const container = document.getElementById("modalBox");
