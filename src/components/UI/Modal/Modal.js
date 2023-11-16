@@ -9,11 +9,6 @@ const Modal = (props) => {
     const {addOrder} = useContext(OrderContext);
 
     const orderConfirmationHandler = () => {
-        if(items.length===0){
-            alert("Cart is Empty, Please add items first");
-            return;
-        }
-        
         let newOrder = { 
             items,
             totalAmount,
@@ -27,14 +22,20 @@ const Modal = (props) => {
     }
 
     const child = <div className={classes.modal}>
+                    { items.length>0 ?  
+                    <>
                     <ul>{props.cartItems}</ul>
                     <h2 className={classes.cost}>
                         <span>Total Amount</span>
                         <span>{totalAmount.toFixed(2)}</span>
                     </h2>
+                    </>
+                    :
+                    <h1>Cart is empty</h1>
+                    }
                     <div className={classes.btnBox}>
                         <button className={classes.closeBtn} onClick={props.hideCartHandler}>Close</button>
-                        <button className={classes.orderBtn} onClick={orderConfirmationHandler}>Order</button>
+                        {items.length>0 && <button className={classes.orderBtn} onClick={orderConfirmationHandler}>Order</button>}
                     </div>
                 </div>
     const container = document.getElementById("modalBox");
