@@ -89,7 +89,7 @@ export const CartContextProvider = (props) => {
         dispatch({type:"REMOVE",id:id})
     }
 
-    const removeAllItemsFromCart = () => {
+    const removeAllItemsFromCartHandler = () => {
         dispatch({type:"REMOVE_ALL"})
     }
 
@@ -98,7 +98,7 @@ export const CartContextProvider = (props) => {
         totalAmount: cartState.totalAmount,
         addItem: addItemToCartHandler,
         removeItem: removeItemFromCartHandler,
-        removeAllItems : removeAllItemsFromCart 
+        removeAllItems : removeAllItemsFromCartHandler 
     }
 
 return(
