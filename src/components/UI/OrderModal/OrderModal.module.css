@@ -1,0 +1,63 @@
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+    width: 60%;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+    background-color: white;
+  }
+
+  .modal ul{
+    display: block;
+    list-style: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 5px;
+    margin-inline-end: 5px;
+    padding-inline-start: 0px;
+  }
+
+  .orderitem{
+    border-bottom: 2px solid #8a2b06;
+  }
+
+  .date{
+    color:#8a2b06;
+  }
+
+  .itemDetails{
+    display: flex;
+    gap: 20px;
+    margin: 5px 0;
+    font-weight: 700;
+  }
+
+.orderCost{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 28px;
+    margin: 5px 0 10px 0;
+}
+
+.closeBtn{
+  font: inherit;
+  cursor: pointer;
+  color: #8a2b06;
+  background-color: #fff;
+  border: 1px solid #8a2b06;
+  padding: 0.3rem 2rem;
+  border-radius: 20px;
+  font-weight: bold;
+  float: right;
+  margin: 10px 0;
+}
+
+.closeBtn:hover{
+  color: #fff;
+  background-color: #8a2b06;
+}

@@ -22,7 +22,7 @@ const removeOneItem = (id) => {
         
         return(
         <li className={classes["li-item"]} key={meal.id}>
-            <p className={classes["item-details"]}>
+            <div className={classes["item-details"]}>
                 <h2>{meal.name}</h2>
                 <p>
                     <span className={classes.price}>${meal.price}</span>
@@ -30,7 +30,7 @@ const removeOneItem = (id) => {
                         x {meal.quantity}
                     </span>
                 </p>
-            </p>
+            </div>
             <p className={classes.btnBox}>
                 <button onClick={()=>removeOneItem(meal.id)}>-</button>
                 <button  onClick={()=>addOneItem(meal)}>+</button>

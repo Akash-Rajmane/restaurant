@@ -10,7 +10,7 @@ const Cart = (props) => {
         cartItems={<CartItems/>}
         hideCartHandler={props.hideCartHandler}
     />
-    <Backdrop hideCartHandler={props.hideCartHandler}/>
+    <Backdrop onClick={props.hideCartHandler}/>
     </>
   )
 }
